@@ -20,8 +20,8 @@ exe=$meu_local/${nome_exec}_$nome_pasta
   
                           
 flagm="-module ./"
-#flag="-O3 -mmic -align array64byte -opt-assume-safe-padding -g"
-flag="-ipo -O3 -xCORE-AVX2 -align array64byte -opt-assume-safe-padding -g"
+flag="-O3 -mmic -align array64byte -opt-assume-safe-padding -g"
+#flag="-ipo -O3 -xAVX -align array64byte -opt-assume-safe-padding -g"
 flagsonp="-openmp -openmp-simd"
 ifort=ifort
 # /opt/intel/composer_xe_2013_sp1.2.144/bin/intel64/ifort
@@ -38,5 +38,5 @@ rm *.o
 rm *.mod
 echo "===================compilacao terminou==================="
 
-$exe
+./mic_native.sh 0 ${nome_exec}_$nome_pasta
 exit 
