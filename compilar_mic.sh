@@ -7,8 +7,10 @@ if [ $# -ne 2 ]
 fi
 clear
 
+whichcard=0
 nome_pasta=$1
 nome_exec=$2
+export COMPILER_ROOT=$TBBROOT/../compiler
 
 echo "Procura o arquivo $nome_exec.f90 na pasta src_local/$nome_pasta e gera o executavel ${nome_exec}_$nome_pasta em src_local"
 
@@ -20,7 +22,7 @@ exe=$meu_local/${nome_exec}_$nome_pasta
   
                           
 flagm="-module ./"
-flag="-O3 -mmic -align array64byte -opt-assume-safe-padding -g"
+flag="-O3 -mmic -opt-assume-safe-padding -g"
 #flag="-ipo -O3 -xAVX -align array64byte -opt-assume-safe-padding -g"
 flagsonp="-openmp -openmp-simd"
 ifort=ifort
@@ -33,10 +35,11 @@ $ifort $flag $flagm $flagsonp -o $exe $main
 #ifort -ipo -O3 -xAVX -qopenmp-simd -align array64byte -opt-assume-safe-padding -g -module ./ -qopenmp -o mod_tti_cpml3D_vs08 ./mod_tti_cpml3D_vs08.f90
 set +x
 
-cd $meu_local
-rm *.o
-rm *.mod
+#cd $meu_local
+#rm *.o
+#rm *.mod
 echo "===================compilacao terminou==================="
 
-./mic_native.sh 0 ${nome_exec}_$nome_pasta
+echo "time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta"
+time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta
 exit 
