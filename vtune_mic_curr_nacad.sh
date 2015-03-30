@@ -39,3 +39,4 @@ amplxe-cl -collect $1 -target-system=mic-host-launch:mic$whichcard -r $resultado
 #amplxe-cl -collect-with runsa -knob event-config=VPU_ELEMENTS_ACTIVE,CPU_CLK_UNHALTED -target-system=mic-host-launch:mic$whichcard -r $resultado/$analise --search-dir /opt/mpss/3.4.3/sysroots/k1om-mpss-linux/boot -- $PROJ_DIR/mic_native_nacad.sh 0 $nome_exec
 
 cp $meu_local/$nome_pasta/$nome_arquivo.f90 $resultado
+cp $meu_local/$nome_exec $resultado

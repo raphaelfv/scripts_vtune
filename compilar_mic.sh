@@ -40,6 +40,6 @@ set +x
 #rm *.mod
 echo "===================compilacao terminou==================="
 
-echo "time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta"
-time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta
+#echo "time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta"
+#time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta
 exit 
