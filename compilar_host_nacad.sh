@@ -20,7 +20,7 @@ exe=$meu_local/${nome_exec}_$nome_pasta
   
                           
 flagm="-module ./"
-flag="-ipo -O3 -xCORE-AVX2 -align array64byte -opt-assume-safe-padding -g" #nacad
+flag="-ipo -O3 -xAVX -align array64byte -opt-assume-safe-padding -g" #nacad
 #flag="-ipo -O3 -xAVX -align array64byte -opt-assume-safe-padding -g" #local
 flagsonp="-openmp -openmp-simd"
 ifort=ifort

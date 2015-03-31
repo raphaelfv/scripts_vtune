@@ -1,4 +1,5 @@
 #!/bin/sh
+#nome_exec=rtm_acust_2D
 if [ $# -ne 3 ]
   then
     echo "Uso do programa: $0 <nome_analise> <nome_pasta> <nome_executavel>"
@@ -31,7 +32,7 @@ uOS_SEARCH="--search-dir all:rp=/opt/mpss/3.3/sysroots/k1om-mpss-linux/boot --se
 #amplxe-cl -collect $1 -target-system=mic-host-launch:mic$whichcard -r $resultado/$analise --start-paused --resume-after 2000 --duration 4 --search-dir /opt/mpss/3.4.3/sysroots/k1om-mpss-linux/boot -- $PROJ_DIR/mic_native_nacad.sh 0 $nome_exec
 
 #sem duracao
-amplxe-cl -target-duration-type=veryshort -collect $1 -target-system=mic-host-launch:mic$whichcard -r $resultado/$analise --search-dir /opt/mpss/3.4.3/sysroots/k1om-mpss-linux/boot -- $PROJ_DIR/mic_native_nacad.sh 0 $nome_exec
+amplxe-cl -target-duration-type=veryshort -collect $1 -target-system=mic-native:mic$whichcard -r $resultado/$analise --search-dir /opt/mpss/3.4.3/sysroots/k1om-mpss-linux/boot -- $PROJ_DIR/mic_native_nacad.sh 0 $nome_exec
 #amplxe-cl -collect $1 -target-system=mic-host-launch:mic$whichcard -r $resultado/$analise --search-dir /opt/mpss/3.4.3/sysroots/k1om-mpss-linux/boot -- $PROJ_DIR/mic_native_nacad.sh 0 $nome_exec
 
 #para intensidade aritmetica

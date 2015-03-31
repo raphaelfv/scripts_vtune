@@ -1,8 +1,8 @@
-#bin/bash
+#bi/bash
 if [ $# -ne 2 ]
   then
-    echo "Uso do programa: $0 <nome_pasta> <nome_executavel>"
-    echo "Procura o arquivo $nome_exec.f90 na pasta src_local/$nome_pasta e gera o executavel ${nome_exec}_$nome_pasta em src_local"
+    echo "Uso do programa: $0 <nome_pasta> <nome_fonte>"
+    echo "Procura o arquivo <nome_fonte>.f90 na pasta src_local/<nome_pasta> e gera o executavel <nome_fonte_<nome_pasta> em src_local"
     exit 1
 fi
 clear
@@ -40,6 +40,7 @@ set +x
 #rm *.mod
 echo "===================compilacao terminou==================="
 
-#echo "time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta"
-#time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta
+set -x
+time ./mic_native.sh $whichcard ${nome_exec}_$nome_pasta
+set +x
 exit 
