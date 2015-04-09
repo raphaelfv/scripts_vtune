@@ -14,8 +14,8 @@ export COMPILER_ROOT=$TBBROOT/../compiler
 export MIC_AFFINITY="balanced,granularity=fine"
 #export MIC_PLACEMENT=61Cx4T
 export MIC_OMP_LIBRARY=throughput  ####### VERIFICAR O QUE EH
-export MIC_NUM_THREADS=228
-export MIC_STACKSIZE=4M
+export MIC_NUM_THREADS=114
+export MIC_STACKSIZE=1M
 #export factor_speed_xphi=16  ####### VERIFICAR O QUE EH
 export MIC_KMP_FOR_TPROFILE=1
 
