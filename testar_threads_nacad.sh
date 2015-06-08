@@ -7,7 +7,7 @@ fi
 
 whichcard=0
 nome_exec=$1
-PROJ_DIR=$PWD/../src_local
+PROJ_DIR=$PWD/../codigos
 
 export COMPILER_ROOT=$TBBROOT/../compiler
 export MIC_AFFINITY="balanced,granularity=fine"

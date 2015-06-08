@@ -16,7 +16,8 @@ PROJ_DIR=$PWD
 whichcard=0
 #echo "0"|sudo tee /proc/sys/kernel/yama/ptrace_scope #MODIFICAR CASO ESTEJA RODANDO HS
 
+ulimit -s unlimited
 export OMP_NUM_THREADS=16 #MODIFICAR COM O NUMERO DE THREADS
 export KMP_AFFINITY="granularity=thread,proclist=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],explicit" 
 
-$meu_local/$nome_exec
+$meu_local/$nome_arquivo

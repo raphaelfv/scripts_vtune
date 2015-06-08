@@ -2,7 +2,7 @@
 if [ $# -ne 2 ]
   then
     echo "Uso do programa: $0 <nome_pasta> <nome_fonte>"
-    echo "Procura o arquivo <nome_fonte>.f90 na pasta src_local/<nome_pasta> e gera o executavel <nome_fonte>_<nome_pasta> em src_local"
+    echo "Procura o arquivo <nome_fonte>.f90 na pasta codigos/<nome_pasta> e gera o executavel <nome_fonte>_<nome_pasta> em codigos"
     exit 1
 fi
 clear
@@ -10,13 +10,13 @@ clear
 nome_pasta=$1
 nome_exec=$2
 
-echo "Procura o arquivo $nome_exec.f90 na pasta src_local/$nome_pasta e gera o executavel ${nome_exec}_$nome_pasta em src_local"
+echo "Procura o arquivo $nome_exec.f90 na pasta codigos/$nome_pasta e gera o executavel ${nome_exec}_$nome_pasta em codigos"
 
-meu_local=$PWD/../src_local
+meu_local=$PWD/../codigos
 sub=$meu_local/$nome_pasta
 main=$sub/$nome_exec.f90 
 objp=$meu_local/$nome_exec.o
-exe=$meu_local/${nome_exec}_$nome_pasta
+exe=$meu_local/${nome_exec}
   
                           
 flagm="-module ./"

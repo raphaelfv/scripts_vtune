@@ -18,7 +18,6 @@ meu_local=$PWD/../src_local
 sub=$meu_local/$nome_pasta
 main=$sub/$nome_exec.f90 
 objp=$meu_local/$nome_exec.o
-exe=$meu_local/${nome_exec}_$nome_pasta
   
                           
 #lagm="-module ./"
@@ -28,10 +27,10 @@ flagsonp="-openmp -openmp-simd"
 ifort=ifort
 # /opt/intel/composer_xe_2013_sp1.2.144/bin/intel64/ifort
 ulimit -s unlimited 
-rm -f $exe
- 
+rm -f $nome_exec
+
 set -x
-$ifort $flag $flagm $flagsonp -o $exe $main 
+$ifort $flag $flagm $flagsonp -o $nome_exec $main 
 #ifort -ipo -O3 -xAVX -qopenmp-simd -align array64byte -opt-assume-safe-padding -g -module ./ -qopenmp -o mod_tti_cpml3D_vs08 ./mod_tti_cpml3D_vs08.f90
 set +x
 
@@ -40,6 +39,5 @@ set +x
 #rm *.mod
 echo "===================compilacao terminou==================="
 
-#echo "time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta"
-time ./mic_native_nacad.sh $whichcard ${nome_exec}_$nome_pasta
+time ./mic_native_nacad.sh $whichcard $nome_exec
 exit 

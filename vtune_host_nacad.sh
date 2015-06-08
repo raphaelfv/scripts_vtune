@@ -11,7 +11,7 @@ analise=$1
 nome_pasta=$2
 nome_arquivo=$3
 nome_exec=${nome_arquivo}_$nome_pasta
-meu_local=$PWD/../src_local
+meu_local=$PWD/../codigos
 resultado=$PWD/../vtune/$nome_exec
 COLLECT_DIR=$resultado/$analise/
 PROJ_DIR=$PWD
@@ -23,11 +23,11 @@ export KMP_AFFINITY="granularity=thread,proclist=[0,1,2,3,4,5,6,7,8,9,10,11,12,1
 export KMP_FOR_TPROFILE=1
 
 #amplxe-cl -collect $analise -result-dir $resultado/$analise/ --start-paused --resume-after 4000 --duration 30 $meu_local/$nome_exec
-amplxe-cl -target-duration-type=veryshort -collect $analise -result-dir $resultado/$analise/ $meu_local/$nome_exec
+amplxe-cl -target-duration-type=short -collect $analise -result-dir $resultado/$analise/ $meu_local/$nome_arquivo
 
 #intensidade aritmetica
 #amplxe-cl -target-duration-type=veryshort -collect-with runsa -knob event-config=FP_COMP_OPS_EXE.SSE_PACKED_SINGLE -result-dir $resultado/intensidade-aritmetica/ $meu_local/$nome_exec
 #amplxe-cl -target-duration-type=veryshort -collect-with runsa -knob event-config=FP_ASSIST.X87_OUTPUT,FP_ASSIST.X87_INPUT,FP_ASSIST.SIMD_OUTPUT,FP_ASSIST.SIMD_INPUT,FP_COMP_OPS_EXE.X87,FP_COMP_OPS_EXE.SSE_PACKED_DOUBLE,FP_COMP_OPS_EXE.SSE_SCALAR_SINGLE,FP_COMP_OPS_EXE.SSE_PACKED_SINGLE,FP_COMP_OPS_EXE.SSE_SCALAR_DOUBLE,SIMD_FP_256.PACKED_SINGLE,SIMD_FP_256.PACKED_DOUBLE,FP_ASSIST.ANY -result-dir $resultado/intensidade-aritmetica/ $meu_local/$nome_exec
 
-cp $meu_local/$nome_pasta/$nome_arquivo.f90 $resultado
-cp $meu_local/$nome_exec $resultado
+cp $meu_local/$nome_pasta/$nome_arquivo.cpp $resultado
+cp $meu_local/$nome_arquivo $resultado
